@@ -10,7 +10,7 @@ import SharedMessages from "../../components/SharedMessages";
 
 const GeneralApp = () => {
   const theme = useTheme();
- const {sideBar} = useSelector((store) => store.app);
+ const {sidebar} = useSelector((store) => store.app);
  
 
   return (
@@ -21,7 +21,7 @@ const GeneralApp = () => {
       <Box
         sx={{
           height: "100%",
-          width: sideBar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
+          width: sidebar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
           backgroundColor:
            theme.palette.mode === "light"
             ? "#F0F4FA" 
@@ -32,8 +32,8 @@ const GeneralApp = () => {
         <Conversation />
       </Box>
       {/* contact */}
-      {sideBar.open && (() => {
-        switch (sideBar.type) {
+      {sidebar.open && (() => {
+        switch (sidebar.type) {
           case "CONTACT":
             return <Contact />;
 
