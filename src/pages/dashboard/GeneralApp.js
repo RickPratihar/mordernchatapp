@@ -10,8 +10,8 @@ import SharedMessages from "../../components/SharedMessage";
 
 const GeneralApp = () => {
   const theme = useTheme();
- const {sideBar} = useSelector((store) => store.app);
- 
+  const { sidebar} = useSelector((state) => state.app);
+  
 
   return (
 
@@ -21,37 +21,54 @@ const GeneralApp = () => {
       <Box
         sx={{
           height: "100%",
-          width: sideBar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
+          width: sidebar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
           backgroundColor:
-           theme.palette.mode === "light"
-            ? "#F0F4FA" 
-            : theme.palette.background.default,
+            theme.palette.mode === "light"
+              ? "#F0F4FA"
+              : theme.palette.background.paper,
         }}
       >
         {/* conversation*/}
         <Conversation />
       </Box>
       {/* contact */}
-      {sideBar.open && (() => {
-        switch (sideBar.type) {
-          case "CONTACT":
-            return <Contact />;
+      {sidebar.open && (() => {
+  switch (sidebar.type) {                          
+    case "CONTACT":
+      return <Contact />;
 
-          case "STARRED":
+    case "STARRED":
 
-            break;
-          case "SHARED":
-            return <SharedMessages />
+      break;
+    case "SHARED":
+      return <SharedMessages />;
 
 
-          default:
-            break;
-        }
-      })()}
-     
+    default:
+      break;
+  }
+})()}
+
     </Stack>
 
   );
 };
 
 export default GeneralApp;
+
+/*(() => {
+  switch (sidebar.type) {                          
+    case "CONTACT":
+      return <Contact />;
+
+    case "STARRED":
+
+      break;
+    case "SHARED":
+      return <SharedMessages />;
+
+
+    default:
+      break;
+  }
+})()*/
