@@ -1,19 +1,22 @@
 import { useTheme } from "@mui/material/styles";
-import { Box, Stack, Typography, IconButton, Tabs,Tab } from "@mui/material";
+import { Box, Stack, Typography, IconButton, Tabs, Tab, Grid } from "@mui/material";
 import { CaretLeft } from "phosphor-react";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { UpdateSidebarType } from "../redux/slices/app";
+import { faker } from "@faker-js/faker";
+import { SHARED_DOCS, SHARED_LINKS } from "../data";
+import { DocMsg, LinkMsg } from "./Conversation/MsgTypes";
 
 const SharedMessages = () => {
     const theme = useTheme();
 
     const dispatch = useDispatch();
 
-const [value, setValue] = React.useState(0);
-const handleChange = (event, newValue) =>{
-    setValue(newValue);
-};
+    const [value, setValue] = React.useState(0);
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     return (
         <Box sx={{ width: 320, height: "100vh" }}>
@@ -43,9 +46,9 @@ const handleChange = (event, newValue) =>{
                 </Box>
 
                 <Tabs value={value} onChange={handleChange} centered>
-                    <Tab lable="Item One"/>
-                    <Tab lable="Item Two"/>
-                    <Tab lable="Item Three"/>
+                    <Tab lable="Item One" />
+                    <Tab lable="Item Two" />
+                    <Tab lable="Item Three" />
                 </Tabs>
 
                 <Stack
@@ -56,7 +59,34 @@ const handleChange = (event, newValue) =>{
                         overflow: "scroll"
                     }}
                     p={3}
-                    spacing={3}>
+                    spacing={value === 1 ? 1 : 3}>
+
+                    {(() => {
+                        switch (value) {
+                            case 0:
+                                //Image
+                                return <Grid container spacing={2}>
+                                    {
+                                        [0, 1, 2, 3, 4, 5, 6].map((el) => {
+                                            return <Grid item xs={4}>
+                                                <img src={faker.image.avatar()} alt={faker.name.fullName} />
+                                            </Grid>
+                                        })
+                                    }
+                                </Grid>
+
+                            case 1:
+                                //Links
+                                return SHARED_LINKS.map((el) => <LinkMsg el={el} />)
+
+                            case 2:
+                                //Docs
+                                return SHARED_DOCS.map((el) => <DocMsg el={el} />)
+
+                            default:
+                                break;
+                        }
+                    })}
 
                 </Stack>
 
