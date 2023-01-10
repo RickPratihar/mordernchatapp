@@ -45,12 +45,12 @@ const SharedMessages = () => {
 
                 </Box>
 
-                <Tabs value={value} onChange={handleChange} centered>
-                    <Tab lable="Item One" />
-                    <Tab lable="Item Two" />
-                    <Tab lable="Item Three" />
+                <Tabs sx={{px:2, pt:2}} value={value} onChange={handleChange} centered>
+                    <Tab label="Item One" />
+                    <Tab label="Item Two" />
+                    <Tab label="Item Three" />
                 </Tabs>
-
+                 {/*Body*/}
                 <Stack
                     sx={{
                         height: "100%",
