@@ -6,10 +6,6 @@ import Header from "./Header";
 import Message from "./Message"
 
 
-
-
-
-
 const Conversation = () => {
 
     return (
@@ -19,7 +15,7 @@ const Conversation = () => {
 
             {/* Msg */}
             <Box weight={"100%"} sx={{ flexGrow: 1, height:"100%", overflowY: "scroll" }}>
-             <Message />
+             <Message menu={true} />
             </Box>
             {/* Chat Footer */}
             <Footer />

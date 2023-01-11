@@ -46,9 +46,9 @@ const SharedMessages = () => {
                 </Box>
 
                 <Tabs sx={{px:2, pt:2}} value={value} onChange={handleChange} centered>
-                    <Tab label="Item One" />
-                    <Tab label="Item Two" />
-                    <Tab label="Item Three" />
+                    <Tab label="Image" />
+                    <Tab label="Links" />
+                    <Tab label="Docs" />
                 </Tabs>
                  {/*Body*/}
                 <Stack
@@ -65,15 +65,17 @@ const SharedMessages = () => {
                         switch (value) {
                             case 0:
                                 //Image
-                                return <Grid container spacing={2}>
-                                    {
-                                        [0, 1, 2, 3, 4, 5, 6].map((el) => {
+                                return (
+                                     <Grid container spacing={2}>
+                                    {[0, 1, 2, 3, 4, 5, 6].map((el) =>{
                                             return <Grid item xs={4}>
-                                                <img src={faker.image.avatar()} alt={faker.name.fullName} />
+                                                <img
+                                                 src={faker.image.avatar()} 
+                                                 alt={faker.name.fullName}/>
                                             </Grid>
-                                        })
-                                    }
+                                        })}
                                 </Grid>
+                                );
 
                             case 1:
                                 //Links
@@ -86,7 +88,7 @@ const SharedMessages = () => {
                             default:
                                 break;
                         }
-                    })}
+                    })()}
 
                 </Stack>
 

@@ -6,12 +6,13 @@ import Chats from "./Chats"
 import Contact from "../../components/Contact";
 import { useSelector } from "react-redux";
 import SharedMessages from "../../components/SharedMessage";
+import StarredMessages from "../../components/StarredMessages";
 
 
 const GeneralApp = () => {
   const theme = useTheme();
-  const { sidebar} = useSelector((state) => state.app);
-  
+  const { sidebar } = useSelector((state) => state.app);
+
 
   return (
 
@@ -38,8 +39,8 @@ const GeneralApp = () => {
       return <Contact />;
 
     case "STARRED":
-
-      break;
+       return <StarredMessages/>
+  
     case "SHARED":
       return <SharedMessages />;
 

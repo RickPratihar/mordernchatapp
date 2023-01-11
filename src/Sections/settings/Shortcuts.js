@@ -96,7 +96,7 @@ const list = [
 
 
 
-const Shortcuts = (open, handleClose) => {
+const Shortcuts = ({open, handleClose}) => {
     return (
         <>
             <Dialog
@@ -137,9 +137,7 @@ const Shortcuts = (open, handleClose) => {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                <Button variant={"contained"} onClick={handleClose}>
-            Ok
-          </Button>
+                <Button variant={"contained"} onClick={handleClose}>Ok</Button>
                 </DialogActions>
 
             </Dialog>
