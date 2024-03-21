@@ -1,3 +1,11 @@
+<h3>Live Link</h3><p>https://chat-app-b77fcf.netlify.app/app</p>
+<h2>Preview</h2>
+
+![Screenshot_20240321_111039](https://github.com/RickPratihar/mordernchatapp/assets/103872207/4e441754-2f61-441e-96cb-06e52d75d8ff)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
